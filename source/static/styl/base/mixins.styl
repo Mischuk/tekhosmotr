@@ -49,13 +49,19 @@ trfrotate(degrees)
 
 trftranslate(x, y)
   transform translate(x y)
-
+sprite()
+  @media  only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi)
+    background-image url('../images/sprite@2x.png')
+    background-size 500px 250px
 retina(a, b)
   background-image url(a)
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
     background-image url(b)
     background-size $sprite
-
+roboto()
+  font-family: 'Roboto', sans-serif;
+cond()
+  font-family: 'Roboto Condensed', sans-serif;
 //
 // TRIANGLE
 // ========

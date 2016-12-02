@@ -81,8 +81,16 @@
   display: none; }
 
 .mfp-hide {
-  display: none !important; }
-
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.my-mfp-zoom-in.mfp-ready .zoom-anim-dialog{
+  display: block !important;
+  opacity: 1;
+  overflow: visible;
+  height: auto;
+}
 .mfp-preloader {
   color: #CCC;
   position: absolute;

@@ -1,0 +1,47 @@
+.m_footer
+  background #323232
+  color #fff
+  font-size 14px
+  padding 30px 0
+  @media MD
+    padding 45px 0
+  .wrapper
+    @media SM
+      display table
+      width 100%
+      &:after, &:before
+        display none
+  .developed, .address, .phone
+    margin-top 20px
+  .label
+    display block
+    margin-bottom 5px
+  .value
+    display block
+    font-weight 500
+    a
+      color #fff
+      text-decoration none
+  .address, .phone
+    @media XS
+      display inline-block
+      vertical-align top
+      width 49%
+  .address, .phone, .developed, .copyright
+    @media SM
+      display table-cell
+      vertical-align top
+      width auto
+      min-width 120px
+  .address, .copyright
+    @media SM
+      padding-right 20px
+  .developed
+    @media SM
+      text-align right
+      padding-left 20px
+  .copyright
+    br
+      display none
+      @media SM
+        display block

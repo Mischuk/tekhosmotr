@@ -2,20 +2,1496 @@
 <html class="no-js" lang="ru">
 
 	<head>
-		<title>Default title</title>
+		<title>Официальный техосмотр в Санкт-Петербурге</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="msapplication-tap-highlight" content="no">
-		<link type="image/x-icon" href="favicon.ico" rel="icon">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700|Roboto:300,500&amp;amp;subset=cyrillic-ext" rel="stylesheet">
 		<link href="css/plugins.css" rel="stylesheet">
 		<link href="css/app.min.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsb0JTYdk8tOFqBBhe8Ww6r_1D29t6oXQ&amp;callback=initialize" async defer></script>
+		<script>
+			var LocationData = [
+				[49.2812668, -123.1035942, "Название улицы #1, номер дома", "+7 (812) 111-00-11"],
+				[49.2814064, -123.1025187, "Название улицы #2, номер дома", "+7 (812) 222-00-22"],
+				[49.2812336, -123.1020622, "Название улицы #3, номер дома", "+7 (812) 333-00-33"],
+				[49.2813564, -123.1012253, "Название улицы #4, номер дома", "+7 (812) 444-00-44"],
+				[49.2811625, -123.0985032, "Название улицы #5, номер дома", "+7 (812) 555-00-55"]
+			];
+			var myOptions = {
+				zoom: 16,
+				scrollwheel: false,
+				navigationControl: false,
+				mapTypeControl: false,
+				scaleControl: false,
+				styles: [
+				{
+					"featureType": "all",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "all",
+					"elementType": "geometry.stroke",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "all",
+					"elementType": "labels.text",
+					"stylers": [
+					{
+						"color": "#ff0000"
+					}]
+				},
+				{
+					"featureType": "all",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#01222e"
+					}]
+				},
+				{
+					"featureType": "all",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+					{
+						"color": "#c4e5f1"
+					}]
+				},
+				{
+					"featureType": "administrative",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#01222e"
+					}]
+				},
+				{
+					"featureType": "administrative",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+					{
+						"visibility": "on"
+					},
+					{
+						"color": "#c4e5f1"
+					}]
+				},
+				{
+					"featureType": "administrative.country",
+					"elementType": "geometry.fill",
+					"stylers": [
+					{
+						"visibility": "off"
+					}]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "geometry",
+					"stylers": [
+					{
+						"color": "#bbdce9"
+					}]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "off"
+					}]
+				},
+				{
+					"featureType": "poi.attraction",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "poi.attraction",
+					"elementType": "geometry",
+					"stylers": [
+					{
+						"color": "#9abbc8"
+					}]
+				},
+				{
+					"featureType": "poi.business",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "poi.business",
+					"elementType": "geometry",
+					"stylers": [
+					{
+						"visibility": "simplified"
+					},
+					{
+						"color": "#a5c6d2"
+					}]
+				},
+				{
+					"featureType": "poi.business",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#01222e"
+					}]
+				},
+				{
+					"featureType": "poi.business",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+					{
+						"color": "#c4e5f1"
+					}]
+				},
+				{
+					"featureType": "poi.government",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "poi.government",
+					"elementType": "geometry",
+					"stylers": [
+					{
+						"color": "#9abbc8"
+					}]
+				},
+				{
+					"featureType": "poi.government",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "poi.medical",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "poi.medical",
+					"elementType": "geometry",
+					"stylers": [
+					{
+						"color": "#c6e7f4"
+					}]
+				},
+				{
+					"featureType": "poi.park",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "poi.park",
+					"elementType": "geometry",
+					"stylers": [
+					{
+						"color": "#adceda"
+					}]
+				},
+				{
+					"featureType": "poi.place_of_worship",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "off"
+					}]
+				},
+				{
+					"featureType": "poi.school",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "off"
+					}]
+				},
+				{
+					"featureType": "poi.sports_complex",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "off"
+					}]
+				},
+				{
+					"featureType": "road",
+					"elementType": "geometry.fill",
+					"stylers": [
+					{
+						"color": "#8eafbc"
+					},
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "road",
+					"elementType": "geometry.stroke",
+					"stylers": [
+					{
+						"color": "#7697a3"
+					},
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#01222e"
+					}]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+					{
+						"color": "#c4e5f1"
+					}]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "labels.icon",
+					"stylers": [
+					{
+						"saturation": "-80"
+					},
+					{
+						"lightness": "0"
+					}]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#c8e9f5"
+					}]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+					{
+						"color": "#61828e"
+					}]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.icon",
+					"stylers": [
+					{
+						"visibility": "simplified"
+					},
+					{
+						"saturation": "-59"
+					}]
+				},
+				{
+					"featureType": "road.local",
+					"elementType": "all",
+					"stylers": [
+					{
+						"visibility": "on"
+					}]
+				},
+				{
+					"featureType": "transit",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#01222e"
+					}]
+				},
+				{
+					"featureType": "transit.station",
+					"elementType": "labels.text.fill",
+					"stylers": [
+					{
+						"color": "#01222e"
+					}]
+				},
+				{
+					"featureType": "transit.station",
+					"elementType": "labels.text.stroke",
+					"stylers": [
+					{
+						"color": "#c4e5f1"
+					}]
+				},
+				{
+					"featureType": "water",
+					"elementType": "all",
+					"stylers": [
+					{
+						"color": "#9abbc8"
+					},
+					{
+						"visibility": "on"
+					}]
+				}]
+			};
+
+			function initialize()
+			{
+				var mapx = new google.maps.Map(document.getElementById('popup-map'),
+				{
+					center: new google.maps.LatLng(49.2812668, -123.1035942),
+					zoom: 19,
+					scrollwheel: false,
+					navigationControl: false,
+					mapTypeControl: false,
+					scaleControl: false,
+					styles: [
+					{
+						"featureType": "all",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "geometry.stroke",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text",
+						"stylers": [
+						{
+							"color": "#ff0000"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"visibility": "on"
+						},
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "administrative.country",
+						"elementType": "geometry.fill",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#bbdce9"
+						}]
+					},
+					{
+						"featureType": "poi",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.attraction",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.attraction",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"color": "#a5c6d2"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.medical",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.medical",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#c6e7f4"
+						}]
+					},
+					{
+						"featureType": "poi.park",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.park",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#adceda"
+						}]
+					},
+					{
+						"featureType": "poi.place_of_worship",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.school",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.sports_complex",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "geometry.fill",
+						"stylers": [
+						{
+							"color": "#8eafbc"
+						},
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "geometry.stroke",
+						"stylers": [
+						{
+							"color": "#7697a3"
+						},
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.icon",
+						"stylers": [
+						{
+							"saturation": "-80"
+						},
+						{
+							"lightness": "0"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#c8e9f5"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#61828e"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.icon",
+						"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"saturation": "-59"
+						}]
+					},
+					{
+						"featureType": "road.local",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "transit",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "transit.station",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "transit.station",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "water",
+						"elementType": "all",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						},
+						{
+							"visibility": "on"
+						}]
+					}]
+				});
+				for (var i in LocationData)
+				{
+					var p = LocationData[i];
+					var latlng = new google.maps.LatLng(p[0], p[1]);
+					var marker = new google.maps.Marker(
+					{
+						position: latlng,
+						map: mapx,
+						title: p[2],
+						icon: 'images/marker.png',
+					});
+				}
+
+				function newLocation(newLat, newLng)
+				{
+					mapx.setCenter(
+					{
+						lat: newLat,
+						lng: newLng
+					});
+				};
+				$(function()
+				{
+					$("select.map-trigger").select2().on("select2:select", function(e)
+					{
+						var selected_element = $(e.currentTarget);
+						var select_val = selected_element.val();
+						var res = select_val.split(',');
+						newLocation(+res[0], +res[1]);
+					});
+					$('select').select2(
+					{
+						minimumResultsForSearch: Infinity
+					});
+				});
+				var mapxu = new google.maps.Map(document.getElementById('popup-map-uri'),
+				{
+					center: new google.maps.LatLng(49.2812668, -123.1035942),
+					zoom: 19,
+					scrollwheel: false,
+					navigationControl: false,
+					mapTypeControl: false,
+					scaleControl: false,
+					styles: [
+					{
+						"featureType": "all",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "geometry.stroke",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text",
+						"stylers": [
+						{
+							"color": "#ff0000"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"visibility": "on"
+						},
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "administrative.country",
+						"elementType": "geometry.fill",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#bbdce9"
+						}]
+					},
+					{
+						"featureType": "poi",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.attraction",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.attraction",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"color": "#a5c6d2"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.medical",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.medical",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#c6e7f4"
+						}]
+					},
+					{
+						"featureType": "poi.park",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.park",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#adceda"
+						}]
+					},
+					{
+						"featureType": "poi.place_of_worship",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.school",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.sports_complex",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "geometry.fill",
+						"stylers": [
+						{
+							"color": "#8eafbc"
+						},
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "geometry.stroke",
+						"stylers": [
+						{
+							"color": "#7697a3"
+						},
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.icon",
+						"stylers": [
+						{
+							"saturation": "-80"
+						},
+						{
+							"lightness": "0"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#c8e9f5"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#61828e"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.icon",
+						"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"saturation": "-59"
+						}]
+					},
+					{
+						"featureType": "road.local",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "transit",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "transit.station",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "transit.station",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "water",
+						"elementType": "all",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						},
+						{
+							"visibility": "on"
+						}]
+					}]
+				});
+				for (var i in LocationData)
+				{
+					var p = LocationData[i];
+					var latlng = new google.maps.LatLng(p[0], p[1]);
+					var marker = new google.maps.Marker(
+					{
+						position: latlng,
+						map: mapxu,
+						title: p[2],
+						icon: 'images/marker.png',
+					});
+				}
+
+				function newLocationZ(newLat, newLng)
+				{
+					mapxu.setCenter(
+					{
+						lat: newLat,
+						lng: newLng
+					});
+				};
+				$(function()
+				{
+					$("select.map-trigger").select2().on("select2:select", function(e)
+					{
+						var selected_element = $(e.currentTarget);
+						var select_val = selected_element.val();
+						var res = select_val.split(',');
+						newLocationZ(+res[0], +res[1]);
+					});
+					$('select').select2(
+					{
+						minimumResultsForSearch: Infinity
+					});
+				});
+				var map = new google.maps.Map(document.getElementById('map'), myOptions);
+				var bounds = new google.maps.LatLngBounds();
+				var infowindow = new google.maps.InfoWindow();
+				for (var i in LocationData)
+				{
+					var p = LocationData[i];
+					var windowContent = '<div class="customWindow"><div class="row"><span class="label">Адрес:</span>' + p[2] + '</div>' + '<div class="row"><span class="label">Телефон:</span>' + '<b>' + p[3] + '</b>' + '</div>' + '<div class="action"><a class="call-popup" href="#call-tekh">ЗАПИСАТЬСЯ НА ТЕХОСМОТР</a></div></div>';
+					var latlng = new google.maps.LatLng(p[0], p[1]);
+					bounds.extend(latlng);
+					var marker = new google.maps.Marker(
+					{
+						position: latlng,
+						map: map,
+						title: p[2],
+						icon: 'images/marker.png',
+						windowContent: windowContent
+					});
+					google.maps.event.addListener(marker, 'click', function()
+					{
+						infowindow.setContent(this.windowContent);
+						infowindow.open(map, this);
+					});
+				}
+				map.fitBounds(bounds);
+			}
+
+		</script>
 	</head>
 
 	<body>
-		<h1>Hello, world!</h1>
+		<header class="m_header">
+			<div class="wrapper">
+				<div class="logo">
+					<a href="#">
+						<span class="icon"></span>
+						<span>в Санкт-Петербурге</span>
+					</a>
+				</div>
+				<div class="buttons">
+					<a class="for-companies ripple" href="#companies">ДЛЯ ЮР. ЛИЦ</a>
+					<a class="for-map" href="#maplist">
+						<span>АДРЕСА ПУНКТОВ ТЕХОСМОТРА</span>
+					</a>
+				</div>
+				<div class="contacts">
+					<span class="phone">+7 (812) 608-00-14</span>
+					<div class="callback">
+						<a class="ripple call-popup" href="#call-tekh-default">ЗАПИСЬ ОНЛАЙН</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="m_carousel">
+			<div class="carousel-lead">
+				<div class="slide">
+					<div class="image" style="background-image: url('images/carousel-1.jpg')"></div>
+					<div class="wrapper">
+						<div class="vertical-outer">
+							<div class="vertical-inner">
+								<h2>При оформлении ОСАГО
+									<br>
+									<b>скидка на техосмотр</b>
+								</h2>
+								<p>Стоимость техосмотра - от 599 руб.</p>
+								<div class="action">
+									<a class="ripple call-popup" href="#call-tekh-default">Записаться на техосмотр</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="image" style="background-image: url('images/carousel-2.jpg')"></div>
+					<div class="wrapper">
+						<div class="vertical-outer">
+							<div class="vertical-inner">
+								<h2>Техосмотр для юридических лиц</h2>
+								<p>Отправьте запрос и получите индивидуальное предложение на прохождение техосмотра</p>
+								<div class="action">
+									<a class="ripple call-popup" href="#call-tekh-uri">Получить предложение</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="m_profits">
+			<div class="wrapper">
+				<div class="section-title">Почему это выгодно:</div>
+				<div class="columns">
+					<div class="column">
+						<div class="image">
+							<div class="icon-1"></div>
+						</div>
+						<div class="desc">
+							<h3>Низкая цена</h3>
+							<p>Стоимость от 599 руб.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div class="image">
+							<div class="icon-2"></div>
+						</div>
+						<div class="desc">
+							<h3>Реальная диагностика</h3>
+							<p>вашего автомобиля</p>
+						</div>
+					</div>
+					<div class="column">
+						<div class="image">
+							<div class="icon-3"></div>
+						</div>
+						<div class="desc">
+							<h3>Скидка при оформлении ОСАГО</h3>
+						</div>
+					</div>
+					<div class="column">
+						<div class="image">
+							<div class="icon-4"></div>
+						</div>
+						<div class="desc">
+							<h3>Надежно</h3>
+							<p>Техосмотр вносится в государственную базу ЕАИСТО</p>
+						</div>
+					</div>
+					<div class="column">
+						<div class="image">
+							<div class="icon-5"></div>
+						</div>
+						<div class="desc">
+							<h3>Быстро</h3>
+							<p>Оформление без очереди за 20 мин.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="m_about">
+			<div class="wrapper">
+				<div class="frame">
+					<div class="section-title">Почему нас выбирают:</div>
+					<div class="columns">
+						<div class="column">
+							<div class="image">
+								<div class="icon-1"></div>
+							</div>
+							<div class="desc">
+								<h3>Официальная аккредитация в РСА</h3>
+							</div>
+						</div>
+						<div class="column">
+							<div class="image">
+								<div class="icon-2"></div>
+							</div>
+							<div class="desc">
+								<h3>Возможность оформить ОСАГО на месте</h3>
+							</div>
+						</div>
+						<div class="column">
+							<div class="image">
+								<div class="icon-3"></div>
+							</div>
+							<div class="desc">
+								<h3>Сертифицированное диагностическое оборудование</h3>
+							</div>
+						</div>
+						<div class="column">
+							<div class="image">
+								<div class="icon-4"></div>
+							</div>
+							<div class="desc">
+								<h3>Эксперты со стажем от 3 лет</h3>
+							</div>
+						</div>
+						<div class="column">
+							<div class="image">
+								<div class="icon-5"></div>
+							</div>
+							<div class="desc">
+								<h3>Удобный график работы</h3>
+							</div>
+						</div>
+					</div>
+					<div class="action">
+						<a class="ripple call-popup" href="#call-tekh-default">Записаться на техосмотр</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="m_steps">
+			<div class="wrapper">
+				<div class="section-title">Этапы прохождения техосмотра</div>
+				<div class="columns">
+					<div class="column">
+						<div class="image">1</div>
+						<div class="desc">Запишитесь онлайн или позвоните</div>
+					</div>
+					<div class="column">
+						<div class="image">2</div>
+						<div class="desc">Выберите удобный пункт техосмотра</div>
+					</div>
+					<div class="column">
+						<div class="image">3</div>
+						<div class="desc">Пройдите техосмотр и получите диагностическую карту</div>
+					</div>
+					<div class="column">
+						<div class="image">4</div>
+						<div class="desc">При оформлении ОСАГО вы получаете скидку на другие наши услуги</div>
+					</div>
+				</div>
+				<div class="steps-list">
+					<div class="section-title">Техосмотр включает в себя</div>
+					<ul>
+						<li>Инструментальное диагностирование;</li>
+						<li>Проверка тормозной системы;</li>
+						<li>Проверка светотехнического оснащения;</li>
+						<li>Оценка степени люфтов подвески и руля;</li>
+						<li>Измерение токсичности выхлопа;</li>
+						<li>Проверка дверных замков;</li>
+						<li>Проверка норм технических жидкостей.</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="m_companies" id="companies">
+			<div class="wrapper">
+				<div class="section-title">Техосмотр для юридических лиц</div>
+				<p>Техосмотр оказывается для юридических лиц на все виды транспорта в соответствии с законодательством Российской Федерации.</p>
+				<div class="hook">
+					<p>Отправьте запрос и получите индивидуальное предложение на прохождение техосмотра</p>
+					<div class="action">
+						<a class="ripple call-popup" href="#call-tekh-uri">Получить предложение</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="m_map" id="maplist">
+			<div class="section-title">Адреса пунктов техосмотра:</div>
+			<div id="map"></div>
+		</section>
+		<footer class="m_footer">
+			<div class="wrapper">
+				<div class="copyright">© 2016 Официальный техосмотр
+					<br>в Санкт-Петербурге</div>
+				<div class="address">
+					<span class="label">АДРЕС:</span>
+					<span class="value">Санкт-Петербург, название улицы,
+						<br>дом 51, корп.,1</span>
+				</div>
+				<div class="phone">
+					<span class="label">ТЕЛЕФОН:</span>
+					<span class="value">8 (800) 2000-600</span>
+					<span class="value">8 (812) 300-20-20</span>
+				</div>
+				<div class="developed">
+					<a href="http://pikmedia.ru/" title="Разработка сайта  «Пикмедиа»" target="_blank">Разработка сайта «Пикмедиа»</a>
+				</div>
+			</div>
+		</footer>
+		<div class="zoom-anim-dialog popup mfp-hide" id="call-tekh-default">
+			<div class="popup-title">Записаться на техосмотр</div>
+			<form>
+				<div class="form-row">
+					<input type="text" placeholder="Ваше имя" required>
+					<div class="label">Ваше имя</div>
+				</div>
+				<div class="form-row">
+					<input class="mask-tel" type="tel" placeholder="Ваш номер телефона" required>
+					<div class="label">Ваш номер телефона</div>
+				</div>
+				<div class="form-row">
+					<label>Выберите пункт техосмотра</label>
+					<select class="map-trigger">
+						<option value="49.2812668,-123.1035942">Название улицы #1, номер дома</option>
+						<option value="49.2814064,-123.1025187">Название улицы #2, номер дома</option>
+						<option value="49.2812336,-123.1020622">Название улицы #3, номер дома</option>
+						<option value="49.2813564,-123.1012253">Название улицы #4, номер дома</option>
+						<option value="49.2811625,-123.0985032">Название улицы #5, номер дома</option>
+					</select>
+				</div>
+				<div class="map">
+					<label>Пункт техосмотра на карте</label>
+					<div id="popup-map"></div>
+				</div>
+				<div class="form-row">
+					<button class="ripple submit" type="submit">Записаться</button>
+				</div>
+			</form>
+		</div>
+		<div class="zoom-anim-dialog popup mfp-hide" id="call-tekh-uri">
+			<div class="popup-title">Записаться на техосмотр</div>
+			<form>
+				<div class="form-row">
+					<input type="text" placeholder="Ваше имя" required>
+					<div class="label">Ваше имя</div>
+				</div>
+				<div class="form-row">
+					<input class="mask-tel" type="tel" placeholder="Ваш номер телефона" required>
+					<div class="label">Ваш номер телефона</div>
+				</div>
+				<div class="form-row">
+					<label>Кол-во транспортных средств для просмотра</label>
+					<select class="map-trigger">
+						<option value="а">10</option>
+						<option value="а">15</option>
+						<option value="а">20</option>
+						<option value="а">25</option>
+						<option value="а">30</option>
+					</select>
+				</div>
+				<div class="form-row">
+					<label>Выберите пункт техосмотра</label>
+					<select class="map-trigger">
+						<option value="49.2812668,-123.1035942">Название улицы #1, номер дома</option>
+						<option value="49.2814064,-123.1025187">Название улицы #2, номер дома</option>
+						<option value="49.2812336,-123.1020622">Название улицы #3, номер дома</option>
+						<option value="49.2813564,-123.1012253">Название улицы #4, номер дома</option>
+						<option value="49.2811625,-123.0985032">Название улицы #5, номер дома</option>
+					</select>
+				</div>
+				<div class="map">
+					<label>Пункт техосмотра на карте</label>
+					<div id="popup-map-uri"></div>
+				</div>
+				<div class="form-row">
+					<button class="ripple submit" type="submit">Записаться</button>
+				</div>
+			</form>
+		</div>
+		<a class="call-popup" id="tekcl" href="#call-tekh"></a>
+		<div class="zoom-anim-dialog popup mfp-hide" id="call-tekh">
+			<div class="popup-title">Записаться на техосмотр</div>
+			<form>
+				<div class="form-row">
+					<input type="text" placeholder="Ваше имя" required>
+					<div class="label">Ваше имя</div>
+				</div>
+				<div class="form-row">
+					<input class="mask-tel" type="tel" placeholder="Ваш номер телефона" required>
+					<div class="label">Ваш номер телефона</div>
+				</div>
+				<div class="form-row">
+					<button class="ripple submit" type="submit">Записаться</button>
+				</div>
+			</form>
+		</div>
 		<!-- JS-->
-		<script src="js/jquery.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
 	</body>

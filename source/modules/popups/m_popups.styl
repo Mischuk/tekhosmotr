@@ -1,84 +1,112 @@
 .popup
   position relative
   background #fff
-  padding 40px 20px
-  max-width 400px
+  max-width 510px
   margin 40px auto
+  padding 60px 0
   border-radius $radius
   .mfp-close
-    color $base-color
-  .modal-heading
-    bold()
+    font-size 0
+    text-indent -9999px
+    &:after
+      content ''
+      background: url('../images/sprite.png') no-repeat -150px 0;
+      width: 12px;
+      height: 12px;
+      position absolute
+      left 50%
+      top 50%
+      margin-top -6px
+      margin-left -6px
+      sprite()
+  .popup-title
     text-align center
-    font-size 28px
+    font-size 31px
     margin-bottom 15px
+    font-weight 300
   form
-    .row
-      margin-bottom 15px
+    .form-row
+      position relative
+      padding 0 15px
+      margin-bottom 20px
+      @media SM
+        padding 0 45px
       &:last-child
         margin-bottom 0
-      .column
-        float left
-        width 270px
-        @media screen and (max-width: 420px)
-          width 75%
-        &:last-child
-          width 90px
-          @media screen and (max-width: 420px)
-            width 25%
-        .input
-          width 155px
-          @media screen and (max-width: 420px)
-            width 100%
-            padding-right 15px
-    label
-      clearfix()
-      display block
-      height 30px
-      .input, .label
-        float left
-        font-size 16px
-        line-height 30px
-        height 30px
-      .label
-        width 100px
-        @media screen and (max-width: 420px)
-          display none
-      .input
-        width 260px
-        @media screen and (max-width: 420px)
-          width 100%
-        input
-          anim()
-          width 100%
-          height 30px
-          line-height 30px
-          border 1px solid $border-input
-          padding-left 10px
-          padding-right 10px
-          border-radius $radius
-          &:focus
-            border 1px solid $border-input - 25%
-    .submit
+      label
+        font-size 14px
+        color #333
+        font-weight 500
       input
-        anim()
-        background $base-color
-        border none
-        border-radius $radius
-        height 30px
-        line-height 30px
-        color #fff
         width 100%
-        &:hover
-          background $base-color - 15%
-        &:active
-          box-shadow inset 0 0 20px rgba(0,0,0,.25)
-    .options
-      text-align right
-      cursor default
-      a
+        border 1px solid $orange
+        background #fff
+        font-size 16px
+        padding 10px 15px
+        border-radius $radius
+        font-family: Roboto,sans-serif;
+        font-weight: 300;
+        &:focus
+          border-radius 0 0 $radius $radius
+          & + .label
+            display block
+      .submit
+        anim()
         display inline-block
         vertical-align middle
-        padding 5px 0
-        margin-right 10px
-        text-decoration underline
+        width 100%
+        color #fff
+        text-decoration none
+        background $blue
+        border-radius $radius
+        padding 10px 30px
+        font-size 15px
+        margin-top 20px
+        border none
+        roboto()
+        font-weight 300
+        @media SM
+          font-size 23px
+          padding 10px 50px
+        &:hover
+          background $blue - 5%
+        &:active
+          background $blue - 15%
+    .label
+      position absolute
+      left 15px
+      top -17px
+      background $orange
+      color #fff
+      font-size 13px
+      line-height 17px
+      height 17px
+      padding 0 6px
+      display none
+      @media SM
+        left 45px
+    .map
+      label
+        display block
+        padding 0 45px
+        font-size 14px
+        color #333
+        font-weight 500
+      #popup-map,
+      #popup-map-uri
+        height 300px
+        background $orange
+    .select2-container
+      width 100% !important
+    .select2-container--default .select2-selection--single
+      border-color $orange
+      border-radius $radius
+    .select2-container .select2-selection--single
+      height 40px
+    .select2-container--default .select2-selection--single .select2-selection__rendered
+      font-size 16px
+      line-height 40px
+      roboto()
+      font-weight 300
+    .select2-dropdown
+      border-color $orange

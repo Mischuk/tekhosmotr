@@ -1,21 +1,65 @@
-html
-  position relative
-  min-height 100%
 body
-  font-size 18px
+  roboto()
+  font-weight 300
+  font-size 21px
   line-height 1.2
-  margin-bottom $footer + 30
-  background #fff
-  text-align center
-footer
-  height $footer
+  background #f3f7f9
 .wrapper
   clearfix()
   position relative
-  max-width $wrapper
+  max-width 1200px
   height 100%
   padding-left 15px
   padding-right 15px
   margin-left auto
   margin-right auto
-
+.select2-dropdown
+  border-color $orange !important
+.select2-results__option
+  font-size 16px
+.select2-selection__arrow
+  height 38px !important
+  width 30px !important
+  &:after
+    content ''
+    background: url('../images/sprite.png') no-repeat -200px 0;
+    width: 16px;
+    height: 9px;
+    position absolute
+    left 50%
+    top 50%
+    margin-left -(@width/2)
+    margin-top -(@height/2)
+    opacity .5
+    sprite()
+  b
+    display none
+.customWindow
+  color #323232
+  font-size 14px
+  padding 20px
+  .label
+    color #666666
+  b
+    font-weight 500
+  .row
+    & + .row
+      margin-top 10px
+  .action
+    margin-top 10px
+    a
+      anim()
+      display inline-block
+      vertical-align middle
+      color #fff
+      text-decoration none
+      background $blue
+      border-radius $radius
+      padding 15px 30px
+      font-size 13px
+      cond()
+      font-weight bold
+      &:hover
+        background $blue - 5%
+      &:active
+        background $blue - 15%

@@ -1,0 +1,125 @@
+.m_steps
+  position relative
+  .columns
+    clearfix()
+  .steps-list
+    background #fff
+    border: 1px solid #eceff1;
+    padding: 15px;
+    box-shadow: 1px 1px 2px -1px rgba(0,0,0,.1);
+    margin-top 70px
+    @media SM
+      padding 50px
+      overflow hidden
+      position relative
+    &:after
+      @media SM
+        content ''
+        position absolute
+        right 0
+        top 50%
+        width 250px
+        height 200px
+        margin-top -125px
+        background url("../images/img.png") no-repeat 0 0
+        background-size contain
+        @media MD
+          width 520px
+          height 341px
+    &:before
+      @media SM
+        content ''
+        position absolute
+        right -25%
+        top -25%
+        width 60%
+        height 60%
+        background #77ce57
+        transform rotate(45deg)
+      @media MD
+        right -35%
+        top -29%
+        width 90%
+        height 90%
+      @media LG
+        top -32%
+    .section-title
+      padding-top 0
+      @media SM
+        text-align left
+    ul
+      li
+        position relative
+        padding-left 40px
+        font-size 19px
+        & + li
+          margin-top 20px
+          @media SM
+            margin-top 30px
+        &:after
+          content ''
+          background: url('../images/sprite.png') no-repeat -100px 0;
+          width: 30px;
+          height: 30px;
+          position absolute
+          left 0
+          top -5px
+          sprite()
+  .column
+    padding 15px 0
+    @media screen and (min-width: 480px)
+      display inline-block
+      vertical-align top
+      width 46%
+      margin-left 3%
+      &:nth-child(2n+1)
+        margin-left 0
+    @media SM
+      width 23%
+      display block
+      float left
+      margin-left 1% !important
+      margin-right 1% !important
+      margin-bottom 0
+      & + .column
+        position relative
+        &:after
+          content ''
+          width 100%
+          height 2px
+          border-bottom 2px dashed $orange
+          position absolute
+          left -50%
+          top 65px
+    p
+      margin-bottom 0
+    .image
+      position relative
+      z-index 10
+      width 100px
+      height 100px
+      background $orange
+      color #fff
+      line-height 100px
+      text-align center
+      font-size 40px
+      font-weight 300
+      margin 0 auto
+      border-radius 50%
+      > div
+        background-image url("../images/sprite.png")
+        background-repeat no-repeat
+        sprite()
+        position absolute
+        left 50%
+        top 50%
+        z-index 10
+    .desc
+      padding-top 10px
+      text-align center
+      font-size 21px
+      color #323232
+      @media SM
+        font-size 18px
+      @media MD
+        font-size 21px

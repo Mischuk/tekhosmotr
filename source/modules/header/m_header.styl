@@ -1,6 +1,148 @@
 .m_header
-  background #3b3a36
-  height 70px
-  line-height 70px
-  text-align center
-  color #fff
+  position fixed
+  left 0
+  top 0
+  z-index 100
+  width 100%
+  height 100px
+  background #fff
+  box-shadow 0 0 5px rgba(0,0,0,.2)
+  @media screen and (min-width: 480px)
+    height 80px
+  @media SM
+    height 100px
+  .logo
+    margin 10px 0
+    text-align center
+    @media screen and (min-width: 480px)
+      float left
+      text-align left
+      margin-top 20px
+    @media SM
+      margin-right 20px
+    @media MD
+      margin-right 40px
+    @media MD
+      margin-right 60px
+    a
+      display inline-block
+      vertical-align middle
+      font-size 14px
+      line-height 1
+      text-decoration none
+      color #666
+    .icon
+      display block
+      width 220px
+      height 20px
+      background url("../images/logo-small.png") no-repeat 0 0
+      margin-bottom 5px
+      @media  only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi)
+        background-image url("../images/logo-small@2x.png")
+        background-size 100%
+      @media MD
+        width 332px
+        height 32px
+        background url("../images/logo.png") no-repeat 0 0
+  .buttons
+    display none
+    @media SM
+      display block
+      font-size 13px
+      float left
+      padding 32px 0px
+    @media MD
+      padding 32px 0
+    a
+      display inline-block
+      vertical-align middle
+      text-decoration none
+      cond()
+      font-weight 300
+      &.for-map
+        position relative
+        padding-left 20px
+        &:after
+          content ''
+          background: url('../images/sprite.png') no-repeat -50px 0;
+          width: 12px;
+          height: 16px;
+          position absolute
+          left 0
+          top 50%
+          margin-top -8px
+          sprite()
+        span
+          anim()
+          color #000
+          border-bottom 1px dashed rgba(0,0,0,.2)
+        &:hover
+          span
+            color $orange
+            border-color $orange
+      &.for-companies
+        anim()
+        background $orange
+        position relative
+        padding 10px 15px 10px 40px
+        margin-right 15px
+        border-radius $radius
+        color #fff
+        &:hover
+          background $orange - 10%
+        &:active
+          background $orange - 15%
+        &:after
+          content ''
+          background: url('../images/sprite.png') no-repeat 0 0;
+          width: 14px;
+          height: 16px;
+          position absolute
+          left 15px
+          top 50%
+          margin-top -8px
+          sprite()
+  .contacts
+    text-align center
+    @media screen and (min-width: 480px)
+      float right
+      text-align right
+      margin-top 5px
+    @media SM
+      margin-top 15px
+    @media LG
+      margin 30px 0
+    .phone
+      font-size 21px
+      font-weight 500
+      display none
+      @media screen and (min-width: 480px)
+        display block
+        margin-bottom 5px
+      @media screen and (min-width: 768px) and (max-width: 860px)
+        font-size 16px
+      @media LG
+        display inline-block
+        vertical-align middle
+        margin-bottom 0
+        line-height 35px
+        margin-right 15px
+    .callback
+      cond()
+      display inline
+      font-weight bold
+      font-size 13px
+      a
+        anim()
+        display inline-block
+        vertical-align middle
+        color #fff
+        text-decoration none
+        background $blue
+        border-radius $radius
+        padding 10px 20px
+        &:hover
+          background $blue - 5%
+        &:active
+          background $blue - 15%
+

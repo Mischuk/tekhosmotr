@@ -1,0 +1,128 @@
+.m_about
+  position relative
+  padding-bottom 20px
+  @media MD
+    padding-bottom 0
+  .frame
+    background: #fff;
+    border: 1px solid #eceff1;
+    padding: 15px;
+    text-align: center;
+    overflow hidden
+    box-shadow: 1px 1px 2px -1px rgba(0,0,0,.1)
+    @media screen and (min-width: 480px)
+      width 97%
+      margin 0 auto
+    @media MD
+      width 98%
+  .section-title
+    padding-top 20px
+  .action
+    margin 30px 0
+    a
+      anim()
+      display inline-block
+      vertical-align middle
+      color #fff
+      text-decoration none
+      background $blue
+      border-radius $radius
+      padding 15px 30px
+      font-size 15px
+      @media SM
+        font-size 23px
+        padding 20px 50px
+      &:hover
+        background $blue - 5%
+      &:active
+        background $blue - 15%
+  .columns
+    clearfix()
+  .column
+    padding 15px
+    @media screen and (min-width: 480px)
+      display inline-block
+      vertical-align top
+      width 46%
+      height 250px
+      margin-left 3%
+      &:nth-child(2n+1)
+        margin-left 0
+    @media SM
+      width 30%
+      &:nth-child(2n+1)
+        margin-left 3%
+      &:nth-child(3n+1)
+        margin-left 0
+    @media MD
+      width 18%
+      display block
+      float left
+      margin-left 1% !important
+      margin-right 1% !important
+      margin-bottom 0
+    p
+      margin-bottom 0
+    .image
+      position relative
+      width 100px
+      height 100px
+      background-color: #f6b283;
+      background-image: -webkit-linear-gradient(45deg, #00a5e3, #77ce57);
+      background-image: -moz-linear-gradient(45deg, #00a5e3, #77ce57);
+      background-image: -o-linear-gradient(45deg, #00a5e3, #77ce57);
+      background-image: -ms-linear-gradient(45deg, #00a5e3, #77ce57);
+      background-image: linear-gradient(45deg, #00a5e3, #77ce57);
+      margin 0 auto
+      border-radius 50%
+      > div
+        background-image url("../images/sprite.png")
+        background-repeat no-repeat
+        sprite()
+        position absolute
+        left 50%
+        top 50%
+        z-index 10
+      .icon-1
+        background-position 0 -150px;
+        width: 59px;
+        height: 31px;
+        margin-left -(@width/2)
+        margin-top -(@height/2)
+      .icon-2
+        background-position -100px -150px
+        width 45px
+        height 50px
+        margin-left -(@width/2)
+        margin-top -(@height/2)
+      .icon-3
+        background-position  -200px -150px
+        width 50px
+        height 50px
+        margin-left -(@width/2)
+        margin-top -(@height/2)
+      .icon-4
+        background-position -300px -150px
+        width 50px
+        height 50px
+        margin-left -(@width/2)
+        margin-top -(@height/2)
+      .icon-5
+        background-position -400px -150px
+        width 50px
+        height 50px
+        margin-left -(@width/2)
+        margin-top -(@height/2)
+    .desc
+      padding-top 20px
+      position relative
+      z-index 10
+      transition color 0.5s cubic-bezier(.33,.66,.66,1)
+      h3
+        font-weight 300
+        font-size 19px
+      p
+        font-size 15px
+        color #666666
+        margin-top 10px
+        transition color 0.5s cubic-bezier(.33,.66,.66,1)
