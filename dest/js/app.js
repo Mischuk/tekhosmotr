@@ -39,8 +39,11 @@ $(function() {
 
     function leadCarousel() {
       $('.carousel-lead').slick({
-        arrows: false,
-        dots: false
+        arrows: true,
+        dots: false,
+        fade: true,
+        infinite: 5000,
+        autoplay: true
       });
     }
     leadCarousel();
@@ -65,6 +68,14 @@ $(function() {
       $('#tekcl').trigger('click');
     });
 
+    $('.m_steps .column').hover(function() {
+      $('.m_steps .column').addClass('blured');
+      $(this).toggleClass('hovered blured');
+    },
+    function() {
+      $('.m_steps .column').removeClass('blured');
+      $(this).removeClass('hovered');
+    });
     $(window).load(function(){
       $('.mfp-hide').css({
         'display': 'none'

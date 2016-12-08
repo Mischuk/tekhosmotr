@@ -1144,6 +1144,394 @@
 						minimumResultsForSearch: Infinity
 					});
 				});
+				//
+				var maporg = new google.maps.Map(document.getElementById('popup-map-org'),
+				{
+					center: new google.maps.LatLng(49.2812668, -123.1035942),
+					zoom: 19,
+					scrollwheel: false,
+					navigationControl: false,
+					mapTypeControl: false,
+					scaleControl: false,
+					styles: [
+					{
+						"featureType": "all",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "geometry.stroke",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text",
+						"stylers": [
+						{
+							"color": "#ff0000"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "all",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"visibility": "on"
+						},
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "administrative.country",
+						"elementType": "geometry.fill",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#bbdce9"
+						}]
+					},
+					{
+						"featureType": "poi",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.attraction",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.attraction",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"color": "#a5c6d2"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "poi.business",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						}]
+					},
+					{
+						"featureType": "poi.government",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.medical",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.medical",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#c6e7f4"
+						}]
+					},
+					{
+						"featureType": "poi.park",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "poi.park",
+						"elementType": "geometry",
+						"stylers": [
+						{
+							"color": "#adceda"
+						}]
+					},
+					{
+						"featureType": "poi.place_of_worship",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.school",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi.sports_complex",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "geometry.fill",
+						"stylers": [
+						{
+							"color": "#8eafbc"
+						},
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "geometry.stroke",
+						"stylers": [
+						{
+							"color": "#7697a3"
+						},
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "labels.icon",
+						"stylers": [
+						{
+							"saturation": "-80"
+						},
+						{
+							"lightness": "0"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#c8e9f5"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#61828e"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "labels.icon",
+						"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"saturation": "-59"
+						}]
+					},
+					{
+						"featureType": "road.local",
+						"elementType": "all",
+						"stylers": [
+						{
+							"visibility": "on"
+						}]
+					},
+					{
+						"featureType": "transit",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "transit.station",
+						"elementType": "labels.text.fill",
+						"stylers": [
+						{
+							"color": "#01222e"
+						}]
+					},
+					{
+						"featureType": "transit.station",
+						"elementType": "labels.text.stroke",
+						"stylers": [
+						{
+							"color": "#c4e5f1"
+						}]
+					},
+					{
+						"featureType": "water",
+						"elementType": "all",
+						"stylers": [
+						{
+							"color": "#9abbc8"
+						},
+						{
+							"visibility": "on"
+						}]
+					}]
+				});
+				for (var i in LocationData)
+				{
+					var p = LocationData[i];
+					var latlng = new google.maps.LatLng(p[0], p[1]);
+					var marker = new google.maps.Marker(
+					{
+						position: latlng,
+						map: maporg,
+						title: p[2],
+						icon: 'images/marker.png',
+					});
+				}
+
+				function newLocationO(newLat, newLng)
+				{
+					maporg.setCenter(
+					{
+						lat: newLat,
+						lng: newLng
+					});
+				};
+				$(function()
+				{
+					$("select.map-trigger").select2().on("select2:select", function(e)
+					{
+						var selected_element = $(e.currentTarget);
+						var select_val = selected_element.val();
+						var res = select_val.split(',');
+						newLocationO(+res[0], +res[1]);
+					});
+					$('select').select2(
+					{
+						minimumResultsForSearch: Infinity
+					});
+				});
+				//
 				var map = new google.maps.Map(document.getElementById('map'), myOptions);
 				var bounds = new google.maps.LatLngBounds();
 				var infowindow = new google.maps.InfoWindow();
@@ -1223,7 +1611,7 @@
 								<h2>Техосмотр для юридических лиц</h2>
 								<p>Отправьте запрос и получите индивидуальное предложение на прохождение техосмотра</p>
 								<div class="action">
-									<a class="ripple call-popup" href="#call-tekh-uri">Получить предложение</a>
+									<a class="ripple call-popup" href="#call-tekh-org">Получить предложение</a>
 								</div>
 							</div>
 						</div>
@@ -1376,7 +1764,7 @@
 				<div class="hook">
 					<p>Отправьте запрос и получите индивидуальное предложение на прохождение техосмотра</p>
 					<div class="action">
-						<a class="ripple call-popup" href="#call-tekh-uri">Получить предложение</a>
+						<a class="ripple call-popup" href="#call-tekh-org">Получить предложение</a>
 					</div>
 				</div>
 			</div>
@@ -1428,6 +1816,50 @@
 				<div class="map">
 					<label>Пункт техосмотра на карте</label>
 					<div id="popup-map"></div>
+				</div>
+				<div class="form-row">
+					<button class="ripple submit" type="submit">Записаться</button>
+				</div>
+			</form>
+		</div>
+		<div class="zoom-anim-dialog popup mfp-hide" id="call-tekh-org">
+			<div class="popup-title">Записаться на техосмотр</div>
+			<form>
+				<div class="form-row">
+					<input type="text" placeholder="Наименование организации" required>
+					<div class="label">Наименование организации</div>
+				</div>
+				<div class="form-row">
+					<input type="email" placeholder="Ваш email" required>
+					<div class="label">Ваш email</div>
+				</div>
+				<div class="form-row">
+					<input class="mask-tel" type="tel" placeholder="Ваш номер телефона" required>
+					<div class="label">Ваш номер телефона</div>
+				</div>
+				<div class="form-row">
+					<label>Кол-во транспортных средств для просмотра</label>
+					<select class="map-trigger">
+						<option value="а">10</option>
+						<option value="а">15</option>
+						<option value="а">20</option>
+						<option value="а">25</option>
+						<option value="а">30</option>
+					</select>
+				</div>
+				<div class="form-row">
+					<label>Выберите пункт техосмотра</label>
+					<select class="map-trigger">
+						<option value="49.2812668,-123.1035942">Название улицы #1, номер дома</option>
+						<option value="49.2814064,-123.1025187">Название улицы #2, номер дома</option>
+						<option value="49.2812336,-123.1020622">Название улицы #3, номер дома</option>
+						<option value="49.2813564,-123.1012253">Название улицы #4, номер дома</option>
+						<option value="49.2811625,-123.0985032">Название улицы #5, номер дома</option>
+					</select>
+				</div>
+				<div class="map">
+					<label>Пункт техосмотра на карте</label>
+					<div id="popup-map-org"></div>
 				</div>
 				<div class="form-row">
 					<button class="ripple submit" type="submit">Записаться</button>

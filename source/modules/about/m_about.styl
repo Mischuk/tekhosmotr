@@ -61,20 +61,54 @@
       margin-left 1% !important
       margin-right 1% !important
       margin-bottom 0
+    &:hover
+      .image
+        > div
+          animation zooming 0.5s
+        &:after
+          opacity 1
     p
       margin-bottom 0
     .image
       position relative
       width 100px
       height 100px
-      background-color: #f6b283;
-      background-image: -webkit-linear-gradient(45deg, #00a5e3, #77ce57);
-      background-image: -moz-linear-gradient(45deg, #00a5e3, #77ce57);
-      background-image: -o-linear-gradient(45deg, #00a5e3, #77ce57);
-      background-image: -ms-linear-gradient(45deg, #00a5e3, #77ce57);
-      background-image: linear-gradient(45deg, #00a5e3, #77ce57);
       margin 0 auto
       border-radius 50%
+      &:before,
+      &:after
+        content ''
+        position absolute
+        left 50%
+        top 50%
+        width 100%
+        height 100%
+        margin-left -50px
+        margin-top -50px
+        border-radius 50%
+      &:before
+        background-color: #f6b283;
+        background-image: -webkit-linear-gradient(45deg, #00a5e3, #77ce57);
+        background-image: -moz-linear-gradient(45deg, #00a5e3, #77ce57);
+        background-image: -o-linear-gradient(45deg, #00a5e3, #77ce57);
+        background-image: -ms-linear-gradient(45deg, #00a5e3, #77ce57);
+        background-image: linear-gradient(45deg, #00a5e3, #77ce57);
+      &:after
+        transition all 1s cubic-bezier(.33,.66,.66,1)
+        background-color: #f6b283;
+        background-image: -webkit-linear-gradient(45deg, #77ce57, #00a5e3);
+        background-image: -moz-linear-gradient(45deg, #77ce57, #00a5e3);
+        background-image: -o-linear-gradient(45deg, #77ce57, #00a5e3);
+        background-image: -ms-linear-gradient(45deg, #77ce57, #00a5e3);
+        background-image: linear-gradient(45deg, #77ce57, #00a5e3);
+        opacity 0
+      @keyframes zooming
+        0%
+          transform scale(1)
+        50%
+          transform scale(0.8)
+        100%
+          transform scale(1)
       > div
         background-image url("../images/sprite.png")
         background-repeat no-repeat

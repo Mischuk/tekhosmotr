@@ -13,6 +13,29 @@
     height 100%
   .wrapper
     z-index 10
+  .slick-arrow
+    position absolute
+    top 50%
+    width 40px
+    height 75px
+    margin-top -(@height/2)
+    z-index 10
+    text-indent -9999px
+    font-size 0
+    border none
+    display none !important
+    @media screen and (min-width: 640px)
+      display block !important
+    &.slick-prev
+      left 15px
+      background url("../images/arrow-prev.png") no-repeat 0 0
+    &.slick-next
+      right 15px
+      background url("../images/arrow-next.png") no-repeat 0 0
+  .vertical-inner
+    @media screen and (min-width: 640px)
+      padding-left 70px
+      padding-right 70px
   .slide
     position relative
     color #fff
