@@ -1,0 +1,51 @@
+.m_pagination
+  text-align center
+  padding-bottom 30px
+  ul
+    font-size 0
+  li
+    font-size 15px
+    display inline-block
+    vertical-align middle
+    margin 2px
+    a
+      display block
+      width 30px
+      height 30px
+      line-height 28px
+      border 1px solid #eceff1
+      border-radius $radius
+      text-align center
+      text-decoration none
+      color #333
+      &:hover,
+      &.current
+        color #fff
+        background $orange
+        border-color $orange
+      &.prev,
+      &.next
+        position relative
+        &:after
+          content ''
+          width 9px
+          height 15px
+          position absolute
+          left 50%
+          top 50%
+          margin-left -(@width/2)
+          margin-top -(@height/2)
+          background-image url("../images/breadcrumbs.png")
+          background-repeat no-repeat
+      &.prev
+        &:after
+          background-position 0 0
+        &:hover
+          &:after
+            background-position 0 -17px
+      &.next
+        &:after
+          background-position -17px 0
+        &:hover
+          &:after
+            background-position -17px -17px

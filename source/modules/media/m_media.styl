@@ -1,0 +1,50 @@
+.m_media
+  @media SM
+    text-align center
+  .item
+    font-size 17px
+    @media SM
+      display inline-block
+      vertical-align top
+      width 49%
+      text-align left
+      margin-bottom 30px
+    & + .item
+      margin-top 30px
+      @media SM
+        margin-top 0
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11),
+    &:nth-child(12)
+      display none
+      @media SM
+        display inline-block
+    .post-date
+      color #323232
+      font-size 15px
+      line-height 1
+      margin-bottom 4px
+  .all
+    padding 30px 0
+    @media SM
+      padding-bottom 70px
+    a
+      anim()
+      display inline-block
+      vertical-align middle
+      color #fff
+      text-decoration none
+      background $blue
+      border-radius $radius
+      padding 15px 30px
+      font-size 15px
+      @media SM
+        font-size 21px
+        padding 15px 50px
+      &:hover
+        background $blue - 5%
+      &:active
+        background $blue - 15%

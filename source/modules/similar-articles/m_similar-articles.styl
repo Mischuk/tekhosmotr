@@ -1,0 +1,105 @@
+.m_similar-articles
+  background #f3f7f9
+  @media MD
+    padding-bottom 70px
+  .section-title
+    text-align left
+    @media SM
+      padding-top 20px
+    @media MD
+      padding-top 55px
+  .list
+    clearfix()
+  img
+    max-width 100%
+  .item
+    anim()
+    border 1px solid #eceff1
+    border-radius $radius
+    overflow hidden
+    margin-bottom 15px
+    &:nth-child(3),
+    &:nth-child(4)
+      display none
+      @media SM
+        display block
+    @media screen and (min-width: 480px)
+      float left
+      width 49%
+      margin-left 2%
+      margin-bottom 2%
+      &:nth-child(2n+1)
+        margin-left 0
+        clear left
+    @media MD
+      width 23.5%
+      margin-bottom 0
+      &:nth-child(2n+1)
+        clear none
+        margin-left 2%
+      &:nth-child(4n+1)
+        margin-left 0
+        clear left
+    &:hover
+      border-color $orange
+    .image
+      a
+        display block
+        position relative
+        @media screen and (min-width:480px)
+          height 130px
+        @media screen and (min-width: 568px)
+          height 160px
+        @media SM
+          height 220px
+        @media MD
+          height 180px
+        &:after
+          anim()
+          content ''
+          width 100%
+          height 100%
+          position absolute
+          left 0
+          top 0
+          background #000
+          opacity 0.1
+        &:hover
+          &:after
+            opacity .5
+        img
+          display block
+          width 100%
+          height auto
+          @media screen and (min-width: 480px)
+            height 100%
+    .body
+      padding 15px
+      background #fff
+      .post-date
+        font-size 13px
+        margin-bottom 5px
+      .post-title
+        font-size 17px
+        margin-bottom 10px
+      .post-desc
+        font-size 15px
+        margin-bottom 15px
+    .details
+      a
+        anim()
+        display inline-block
+        vertical-align middle
+        color #fff
+        text-decoration none
+        background $blue
+        border-radius $radius
+        padding 10px 25px
+        font-size 13px
+        text-transform uppercase
+        font-family: 'Roboto Condensed',sans-serif;
+        font-weight bold
+        &:hover
+          background $orange
+        &:active
+          background $orange - 15%

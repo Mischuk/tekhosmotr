@@ -1,0 +1,174 @@
+doctype html
+html(lang="ru").no-js
+  head
+    title Официальный техосмотр в Санкт-Петербурге
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="msapplication-tap-highlight" content="no")
+    link(href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700|Roboto:300,500&amp;subset=cyrillic-ext" rel="stylesheet")
+    link(rel="stylesheet" href="css/plugins.css")
+    link(rel="stylesheet" href="css/app.min.css")
+    script(src="js/jquery.min.js")
+  body
+    header.m_header
+      .wrapper
+        .logo
+          a(href="#")
+            span.icon
+            span в Санкт-Петербурге
+        .buttons
+          a(class="for-companies ripple" href="#companies") ДЛЯ ЮР. ЛИЦ
+          a(class="for-map" href="#maplist"): span АДРЕСА ПУНКТОВ ТЕХОСМОТРА
+        .contacts
+          span.phone +7 (812) 608-00-14
+          .callback: a(class="ripple call-popup" href="#call-tekh-default") ЗАПИСЬ ОНЛАЙН
+    main
+      .wrapper
+        .m_breadcrumbs
+          ul
+            li: a(href="#") Главная
+            li: a(href="#") Статьи
+        .page-title Полезная информация
+        .container
+          .sidebar
+            .m_news-sidebar
+              .title Новости в сфере:
+              ul
+                li: a(href="#") Автострахование
+                li: a(href="#") Гостехосмотр
+          .content
+            .m_articles
+              - for (var x = 0; x < 8; x++)
+                .item
+                  .image: a(href="#"): img(src="images/articles.jpg" alt="")
+                  .body
+                    .post-date 16.05.2017
+                    .post-title: a(href="#") Изменения в ОСАГО с аперял 2017 года
+                    .post-desc ОСАГО - это Обязательное Страхование Автогражданской Ответственности. Что дает наличие обязательного полиса? Любой водитель может причинить своим автомобилем вред или стать виновником аварии.
+                    .details: a(class="ripple" href="#") Подробнее
+            .m_pagination
+              ul
+                li: a(class="prev" href="#")
+                li: a(href="#") 1
+                li: a(href="#") 2
+                li: a(class="current" href="#") 3
+                li: a(href="#") 4
+                li: a(href="#") 5
+                li: a(href="#") 6
+                li: a(href="#") 7
+                li: a(href="#") 8
+                li: a(href="#") 9
+                li: a(href="#") 10
+                li: a(class="next" href="#")
+    footer.m_footer
+      .wrapper
+        .copyright © 2016 Официальный техосмотр <br>в Санкт-Петербурге
+        .address
+          span.label АДРЕС:
+          span.value Санкт-Петербург, название улицы,<br>дом 51, корп.,1
+        .phone
+          span.label ТЕЛЕФОН:
+          span.value 8 (800) 2000-600
+          span.value 8 (812) 300-20-20
+        .developed: a(href="http://pikmedia.ru/" target="_blank" title="Разработка сайта  «Пикмедиа»") Разработка сайта  «Пикмедиа»
+    #call-tekh-default.zoom-anim-dialog.popup.mfp-hide
+      .popup-title Записаться на техосмотр
+      form
+        .form-row
+          input(type="text" placeholder="Ваше имя" required)
+          .label Ваше имя
+        .form-row
+          input(class="mask-tel" type="tel" placeholder="Ваш номер телефона" required)
+          .label Ваш номер телефона
+        .form-row
+          label Выберите пункт техосмотра
+          select.map-trigger
+            option(value="49.2812668,-123.1035942") Название улицы #1, номер дома
+            option(value="49.2814064,-123.1025187") Название улицы #2, номер дома
+            option(value="49.2812336,-123.1020622") Название улицы #3, номер дома
+            option(value="49.2813564,-123.1012253") Название улицы #4, номер дома
+            option(value="49.2811625,-123.0985032") Название улицы #5, номер дома
+        .map
+          label Пункт техосмотра на карте
+          #popup-map
+        .form-row
+          button(class="ripple submit" type="submit") Записаться
+    #call-tekh-org.zoom-anim-dialog.popup.mfp-hide
+      .popup-title Записаться на техосмотр
+      form
+        .form-row
+          input(type="text" placeholder="Наименование организации" required)
+          .label Наименование организации
+        .form-row
+          input(type="email" placeholder="Ваш email" required)
+          .label Ваш email
+        .form-row
+          input(class="mask-tel" type="tel" placeholder="Ваш номер телефона" required)
+          .label Ваш номер телефона
+        .form-row
+          label Кол-во транспортных средств для просмотра
+          select.map-trigger
+            option(value="а") 10
+            option(value="а") 15
+            option(value="а") 20
+            option(value="а") 25
+            option(value="а") 30
+        .form-row
+          label Выберите пункт техосмотра
+          select.map-trigger
+            option(value="49.2812668,-123.1035942") Название улицы #1, номер дома
+            option(value="49.2814064,-123.1025187") Название улицы #2, номер дома
+            option(value="49.2812336,-123.1020622") Название улицы #3, номер дома
+            option(value="49.2813564,-123.1012253") Название улицы #4, номер дома
+            option(value="49.2811625,-123.0985032") Название улицы #5, номер дома
+        .map
+          label Пункт техосмотра на карте
+          #popup-map-org
+        .form-row
+          button(class="ripple submit" type="submit") Записаться
+    #call-tekh-uri.zoom-anim-dialog.popup.mfp-hide
+      .popup-title Записаться на техосмотр
+      form
+        .form-row
+          input(type="text" placeholder="Ваше имя" required)
+          .label Ваше имя
+        .form-row
+          input(class="mask-tel" type="tel" placeholder="Ваш номер телефона" required)
+          .label Ваш номер телефона
+        .form-row
+          label Кол-во транспортных средств для просмотра
+          select.map-trigger
+            option(value="а") 10
+            option(value="а") 15
+            option(value="а") 20
+            option(value="а") 25
+            option(value="а") 30
+        .form-row
+          label Выберите пункт техосмотра
+          select.map-trigger
+            option(value="49.2812668,-123.1035942") Название улицы #1, номер дома
+            option(value="49.2814064,-123.1025187") Название улицы #2, номер дома
+            option(value="49.2812336,-123.1020622") Название улицы #3, номер дома
+            option(value="49.2813564,-123.1012253") Название улицы #4, номер дома
+            option(value="49.2811625,-123.0985032") Название улицы #5, номер дома
+        .map
+          label Пункт техосмотра на карте
+          #popup-map-uri
+        .form-row
+          button(class="ripple submit" type="submit") Записаться
+    a(href="#call-tekh" class="call-popup" id="tekcl")
+    #call-tekh.zoom-anim-dialog.popup.mfp-hide
+      .popup-title Записаться на техосмотр
+      form
+        .form-row
+          input(type="text" placeholder="Ваше имя" required)
+          .label Ваше имя
+        .form-row
+          input(class="mask-tel" type="tel" placeholder="Ваш номер телефона" required)
+          .label Ваш номер телефона
+        .form-row
+          button(class="ripple submit" type="submit") Записаться
+    // JS
+    script(src="js/plugins.js")
+    script(src="js/app.js")

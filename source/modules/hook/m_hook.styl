@@ -1,0 +1,40 @@
+.m_hook
+  margin-bottom 30px
+  article
+    background #fff
+    border 1px solid #eceff1
+    padding 15px
+    box-shadow 1px 1px 2px -1px rgba(0,0,0,.1)
+    margin-bottom 20px
+    overflow hidden
+    @media SM
+      padding 50px
+    h2
+      font-size 28px
+      font-weight 100
+      margin-bottom 15px
+      @media XS
+        font-size 33px
+      @media SM
+        font-size 37px
+    p
+      font-size 17px
+      line-height 30px
+      &:last-child
+        margin-bottom 0
+    ul
+      margin-top -5px
+      li
+        padding-left 40px
+        position relative
+        margin 25px 0
+        font-size 17px
+        &:after
+          content ''
+          background: url('../images/sprite.png') no-repeat -100px 0;
+          width: 30px;
+          height: 30px;
+          position absolute
+          left 0
+          top -5px
+          sprite()

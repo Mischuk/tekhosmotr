@@ -1,0 +1,43 @@
+.m_news-sidebar
+  position relative
+  padding 15px
+  border 1px solid #eceff1
+  border-radius $radius
+  margin-bottom 15px
+  @media MD
+    padding 20px
+  &.articles
+    display none
+    @media MD
+      display block
+  .title
+    font-weight 500
+    font-size 18px
+    margin-bottom 10px
+    @media SM
+      font-size 24px
+  a
+    font-size 16px
+    line-height 1
+    display inline-block
+    vertical-align middle
+    @media SM
+      font-size 17px
+  ul
+    li
+      @media MD
+        margin-top 5px
+  .post-date
+    font-size 13px
+    color #333
+    margin-bottom 5px
+  .post-desc
+    font-size 15px
+    margin-top 5px
+  .articles
+    .item
+      margin-top 15px
+      @media MD
+        margin-top 30px
+        &:first-child
+          margin-top 15px
